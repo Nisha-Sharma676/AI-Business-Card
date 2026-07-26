@@ -55,7 +55,7 @@ app.http('chat', {
             };
 
         } catch (error) {
-            context.error('FULL ERROR:', error);
+            context.log.error('FULL ERROR:', error);
 
             return {
                 status: 500,
