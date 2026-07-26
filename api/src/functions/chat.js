@@ -55,13 +55,16 @@ app.http('chat', {
             };
 
         } catch (error) {
-            context.log.error('FULL ERROR:', error);
+            console.error("FULL ERROR:", error);
 
             return {
                 status: 500,
                 jsonBody: {
-                    error: error.message,
-                    name: error.name
+                    error: error?.message || "Unknown error",
+                    name: error?.name || "UnknownError",
+                    code: error?.code || null,
+                    status: error?.status || null,
+                    details: error?.response?.data || null
                 }
             };
         }
