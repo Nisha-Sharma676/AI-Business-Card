@@ -1,7 +1,7 @@
 {
     "name": "api",
     "version": "1.0.0",
-    "main": "src/functions/chat.js",
+    "main": "api/chat/index.js",
     "scripts": {
         "start": "func start"
     },
