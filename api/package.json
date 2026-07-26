@@ -1,12 +1,12 @@
 {
-    "name": "api",
-    "version": "1.0.0",
-    "main": "api/chat/index.js",
-    "scripts": {
-        "start": "func start"
-    },
-    "dependencies": {
-        "openai": "^4.0.0",
-        "@azure/functions": "^4.0.0"
-    }
+  "name": "api",
+  "version": "1.0.0",
+  "main": "src/functions/*.js",
+  "scripts": {
+    "start": "func start"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.0.0",
+    "openai": "^4.0.0"
+  }
 }
