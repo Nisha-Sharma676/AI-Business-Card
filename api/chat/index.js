@@ -2,17 +2,15 @@ const { AzureOpenAI } = require("openai");
 
 module.exports = async function (context, req) {
     try {
+        context.log("Chat function started");
+
         const { message, systemPrompt } = req.body || {};
 
-        if (!message) {
-            context.res = {
-                status: 400,
-                body: {
-                    reply: "Please enter a message."
-                }
-            };
-            return;
-        }
+        context.log("Message received:", message ? "Yes" : "No");
+        context.log("Endpoint exists:", !!process.env.AZURE_OPENAI_ENDPOINT);
+        context.log("Key exists:", !!process.env.AZURE_OPENAI_KEY);
+        context.log("API version:", process.env.AZURE_OPENAI_API_VERSION);
+        context.log("Deployment:", process.env.AZURE_OPENAI_DEPLOYMENT);
 
         const client = new AzureOpenAI({
             endpoint: process.env.AZURE_OPENAI_ENDPOINT,
@@ -43,13 +41,13 @@ module.exports = async function (context, req) {
         };
 
     } catch (error) {
-        context.log.error("Azure OpenAI Error:", error);
+        context.log.error("FULL ERROR:", error);
 
         context.res = {
             status: 500,
             body: {
-                reply: "Sorry, I couldn't connect to the AI service.",
-                error: error.message
+                error: error.message,
+                name: error.name
             }
         };
     }
