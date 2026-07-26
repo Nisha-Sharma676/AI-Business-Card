@@ -68,6 +68,29 @@ h1 {
     color: #a78bfa;
 }
 
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #ffffff;
+    background: linear-gradient(135deg, #7c3aed, #3b82f6);
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.social-links a:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
 /* Section */
 .section {
     background: #1a1a2e;
@@ -80,13 +103,19 @@ h1 {
 .section h2 {
     font-size: 1.3rem;
     color: #a78bfa;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
+}
+
+.section-desc {
+    color: #888;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
 }
 
 /* Projects */
 .projects {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
 }
 
@@ -94,8 +123,16 @@ h1 {
     background: #0f0f1a;
     border: 1px solid #2a2a4a;
     border-radius: 12px;
-    padding: 16px;
+    padding: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: #7c3aed;
 }
 
 .project-icon {
@@ -106,13 +143,33 @@ h1 {
 
 .project-card h3 {
     font-size: 1rem;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     color: #e2e8f0;
 }
 
 .project-card p {
     font-size: 0.8rem;
     color: #888;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+/* Project Links */
+.project-link {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 8px 14px;
+    background: linear-gradient(135deg, #7c3aed, #3b82f6);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 7px;
+    font-size: 0.8rem;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.project-link:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
 }
 
 /* Chat */
@@ -203,4 +260,35 @@ button:hover {
 button:disabled {
     opacity: 0.4;
     cursor: not-allowed;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    body {
+        padding: 25px 15px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .section {
+        padding: 20px;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .input-row {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
 }
