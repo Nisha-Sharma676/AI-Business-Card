@@ -52,6 +52,11 @@ h1 {
     margin-bottom: 16px;
 }
 
+.hero-description {
+    margin: 25px auto 30px;
+    line-height: 1.6;
+}
+
 .tags {
     display: flex;
     flex-wrap: wrap;
